@@ -1,0 +1,268 @@
+:root {
+  --bg: #f3eee4;
+  --ink: #1c2a22;
+  --muted: #5c6b62;
+  --paper: #fffaf3;
+  --line: #e4d8c4;
+  --accent: #2f6b4f;
+  --accent-hover: #245540;
+  --gold: #c47a2c;
+  --danger: #b42318;
+  --danger-hover: #8f1b12;
+  --done: #6b7c72;
+  --shadow: 0 18px 40px rgba(28, 42, 34, 0.08);
+  --radius: 18px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Outfit", system-ui, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top right, #efe3c8 0%, transparent 38%),
+    linear-gradient(180deg, #f7f1e6 0%, var(--bg) 100%);
+}
+
+.page {
+  width: min(920px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 72px;
+}
+
+.hero {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+h1 {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.lede {
+  max-width: 42rem;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 0 0 18px;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.panel-header h2 {
+  margin-bottom: 0;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field span {
+  font-size: 0.86rem;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  padding: 12px 14px;
+  font: inherit;
+}
+
+input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.form-error {
+  margin: 0 0 12px;
+  color: var(--danger);
+  font-size: 0.92rem;
+}
+
+.btn-primary,
+.btn-delete {
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 22px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--accent-hover);
+}
+
+.counters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.counters span {
+  background: #f3eee4;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.counters strong {
+  color: var(--ink);
+}
+
+.task-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.task {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.task.completed .task-title {
+  text-decoration: line-through;
+  color: var(--done);
+}
+
+.task.completed {
+  opacity: 0.78;
+}
+
+.task-check {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.task-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.task-meta {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.btn-delete {
+  background: transparent;
+  color: var(--danger);
+  padding: 8px 12px;
+}
+
+.btn-delete:hover,
+.btn-delete:focus-visible {
+  color: var(--danger-hover);
+  background: #fbeaea;
+}
+
+.empty {
+  margin: 18px 0 0;
+  color: var(--muted);
+}
+
+.empty.hidden,
+.task-list:empty + .empty {
+  display: none;
+}
+
+.task-list:empty + .empty {
+  display: block;
+}
+
+@media (max-width: 760px) {
+  .page {
+    width: min(920px, calc(100% - 20px));
+    padding-top: 24px;
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+}
